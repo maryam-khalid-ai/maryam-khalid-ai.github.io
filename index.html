@@ -3,33 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maryam Khalid | MSc Researcher | Biomedical AI</title>
+  <title>Maryam Khalid | Biomedical AI Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    /* ── Tokens ── */
     :root {
-      --ink:        #1a1d23;
-      --ink-soft:   #4a5568;
-      --ink-faint:  #8492a6;
-      --surface:    #ffffff;
-      --surface-2:  #f7f8fa;
-      --surface-3:  #eef0f4;
-      --accent:     #1a4a7a;
-      --accent-mid: #2563a8;
-      --accent-light:#dce8f5;
-      --rule:       #dde2eb;
-      --tag-bg:     #eef4fb;
-      --tag-text:   #1a4a7a;
-      --nav-h:      64px;
-      --max-w:      780px;
-      --radius:     6px;
+      --ink:         #0f1623;
+      --ink-soft:    #4a5568;
+      --ink-faint:   #8492a6;
+      --surface:     #ffffff;
+      --surface-2:   #f8f9fc;
+      --rule:        #e2e8f2;
+      --accent:      #1b3f6e;
+      --accent-mid:  #2357a0;
+      --accent-light:#dbeafe;
+      --teal:        #0d9488;
+      --teal-light:  #ccfbf1;
+      --nav-h:       60px;
+      --max-w:       820px;
+      --r:           8px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -39,17 +36,15 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Nav ── */
+    /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: fixed; top: 0; left: 0; right: 0;
       height: var(--nav-h);
       background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--rule);
-      z-index: 100;
-      display: flex;
-      align-items: center;
+      z-index: 200;
+      display: flex; align-items: center;
       justify-content: space-between;
       padding: 0 clamp(1.2rem, 5vw, 3rem);
     }
@@ -61,434 +56,328 @@
       color: var(--accent);
       text-decoration: none;
       letter-spacing: 0.01em;
-      white-space: nowrap;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink-soft);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--ink-soft); text-decoration: none;
+      letter-spacing: 0.07em; text-transform: uppercase;
       transition: color 0.2s;
     }
+    .nav-links a:hover { color: var(--accent-mid); }
 
-    .nav-links a:hover { color: var(--accent); }
-
-    /* Hamburger */
     .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
     }
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--ink);
-      transition: 0.3s;
-    }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); }
 
-    /* ── Layout ── */
-    main { padding-top: var(--nav-h); }
-
-    section {
-      padding: 5rem clamp(1.2rem, 5vw, 3rem);
-    }
-
-    .inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    /* ── Section labels ── */
-    .section-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-mid);
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2rem);
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 2rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    /* ── Hero ── */
+    /* ── HERO ── */
     #about {
-      background: var(--surface);
-      padding-top: calc(var(--nav-h) + 4rem);
-      padding-bottom: 4rem;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: calc(var(--nav-h) + 3rem) clamp(1.2rem, 5vw, 3rem) 5rem;
+      background: linear-gradient(160deg, #f0f5ff 0%, #ffffff 55%, #f0fdf9 100%);
+      position: relative; overflow: hidden;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3rem;
-      align-items: start;
+    #about::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
     }
 
-    .hero-eyebrow {
+    #about::after {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 480px; height: 480px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: var(--teal-light);
+      border: 1px solid rgba(13,148,136,0.25);
+      border-radius: 100px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-mid);
-      margin-bottom: 0.8rem;
+      font-size: 0.7rem; font-weight: 500;
+      color: var(--teal); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--teal);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
     }
 
     .hero-name {
       font-family: 'EB Garamond', serif;
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      font-weight: 500;
-      line-height: 1.15;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
       color: var(--ink);
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
     }
 
-    .hero-title {
-      font-size: 0.95rem;
-      font-weight: 400;
-      color: var(--ink-soft);
-      margin-bottom: 1.4rem;
-      line-height: 1.5;
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent-mid);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem; color: var(--ink-soft);
+      font-weight: 400; margin-bottom: 1.6rem;
+      letter-spacing: 0.01em;
     }
 
     .hero-desc {
-      font-size: 1rem;
-      color: var(--ink-soft);
-      max-width: 540px;
-      margin-bottom: 1.8rem;
-      line-height: 1.75;
+      font-size: 1rem; color: var(--ink-soft);
+      max-width: 600px; margin-bottom: 1rem; line-height: 1.85;
     }
 
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+    .hero-phd {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; color: var(--accent-mid); font-weight: 500;
+      margin-bottom: 2rem; padding: 0.4rem 0.9rem;
+      background: var(--accent-light); border-radius: var(--r);
+      border-left: 3px solid var(--accent-mid);
     }
+
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0.7rem; }
 
     .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.42rem 0.9rem;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 500;
       text-decoration: none;
-      border: 1px solid var(--rule);
-      color: var(--ink-soft);
-      background: var(--surface);
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      border: 1.5px solid var(--rule);
+      color: var(--ink-soft); background: var(--surface);
+      transition: all 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-
     .pill:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--accent-mid); color: var(--accent-mid);
       background: var(--accent-light);
+      box-shadow: 0 2px 8px rgba(35,87,160,0.12);
+      transform: translateY(-1px);
     }
 
-    .pill svg { flex-shrink: 0; }
+    /* ── SECTIONS ── */
+    section.sec { padding: 5rem clamp(1.2rem, 5vw, 3rem); }
+    section.sec:nth-child(even) { background: var(--surface-2); }
+    section.sec:nth-child(odd) { background: var(--surface); }
 
-    /* Avatar placeholder */
-    .hero-avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      border: 3px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      overflow: hidden;
+    .inner { max-width: var(--max-w); margin: 0 auto; }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.5rem;
     }
 
-    .hero-avatar svg { opacity: 0.35; }
-
-    /* ── Research interests ── */
-    #research { background: var(--surface-2); }
-
-    .tags-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
+    .sec-title {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      font-weight: 500; color: var(--ink);
+      margin-bottom: 2.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+      letter-spacing: -0.01em;
     }
+
+    /* ── RESEARCH ── */
+    .tags-grid { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.8rem; }
 
     .tag {
-      padding: 0.35rem 0.85rem;
-      border-radius: var(--radius);
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      font-size: 0.82rem;
-      font-weight: 500;
-      border: 1px solid var(--accent-light);
+      padding: 0.32rem 0.85rem; border-radius: 100px;
+      background: var(--accent-light); color: var(--accent);
+      font-size: 0.8rem; font-weight: 500;
+      border: 1px solid rgba(59,130,246,0.2);
     }
 
     .research-blurb {
-      font-size: 0.97rem;
-      color: var(--ink-soft);
-      line-height: 1.8;
-      max-width: 660px;
+      font-size: 0.97rem; color: var(--ink-soft);
+      line-height: 1.85; max-width: 680px;
     }
 
-    /* ── Publications ── */
-    #publications { background: var(--surface); }
-
-    .pub-list { display: flex; flex-direction: column; gap: 1.4rem; }
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
 
     .pub-card {
       padding: 1.4rem 1.6rem;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
+      border: 1.5px solid var(--rule);
+      border-radius: var(--r);
       background: var(--surface);
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: all 0.22s;
+      position: relative; overflow: hidden;
+    }
+
+    .pub-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 3px;
+      background: var(--rule); transition: background 0.22s;
     }
 
     .pub-card:hover {
       border-color: var(--accent-mid);
-      box-shadow: 0 2px 12px rgba(26,74,122,0.08);
+      box-shadow: 0 4px 20px rgba(35,87,160,0.1);
+      transform: translateY(-1px);
     }
+    .pub-card:hover::before { background: var(--accent-mid); }
 
     .pub-status {
       display: inline-block;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.22rem 0.6rem;
-      border-radius: 100px;
-      margin-bottom: 0.6rem;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.2rem 0.55rem; border-radius: 100px;
+      margin-bottom: 0.55rem;
     }
 
-    .status-review {
-      background: #fff8e1;
-      color: #b45309;
-      border: 1px solid #fde68a;
-    }
-
-    .status-submitted {
-      background: #f0f9ff;
-      color: #0369a1;
-      border: 1px solid #bae6fd;
-    }
-
-    .status-published {
-      background: #f0fdf4;
-      color: #166534;
-      border: 1px solid #bbf7d0;
-    }
+    .s-review  { background: #fff8e1; color: #92400e; border: 1px solid #fde68a; }
+    .s-accepted { background: #ede9fe; color: #5b21b6; border: 1px solid #c4b5fd; }
+    .s-pub     { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
 
     .pub-title {
       font-family: 'EB Garamond', serif;
-      font-size: 1.08rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.35rem;
-      line-height: 1.4;
+      font-size: 1.08rem; font-weight: 500;
+      color: var(--ink); margin-bottom: 0.35rem; line-height: 1.4;
     }
 
-    .pub-venue {
-      font-size: 0.83rem;
-      color: var(--ink-soft);
-      margin-bottom: 0.3rem;
-    }
+    .pub-venue { font-size: 0.83rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+    .pub-venue strong { color: var(--accent); font-weight: 600; }
 
-    .pub-venue strong {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .pub-doi {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--ink-faint);
-    }
-
-    .pub-doi a {
-      color: var(--accent-mid);
-      text-decoration: none;
-    }
-
+    .pub-doi { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--ink-faint); }
+    .pub-doi a { color: var(--accent-mid); text-decoration: none; }
     .pub-doi a:hover { text-decoration: underline; }
 
-    /* ── Education ── */
-    #education { background: var(--surface-2); }
-
-    .edu-list { display: flex; flex-direction: column; gap: 0; }
-
-    .edu-item {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 0 1.6rem;
-      padding: 1.4rem 0;
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid; grid-template-columns: 110px 1fr;
+      gap: 0 1.8rem; padding: 1.6rem 0;
       border-bottom: 1px solid var(--rule);
     }
+    .exp-item:last-child { border-bottom: none; }
 
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--ink-faint);
+      line-height: 1.5; padding-top: 0.2rem;
+    }
+
+    .exp-role {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem; font-weight: 500;
+      color: var(--ink); margin-bottom: 0.15rem;
+    }
+
+    .exp-org { font-size: 0.88rem; color: var(--accent-mid); font-weight: 500; margin-bottom: 0.5rem; }
+    .exp-desc { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.75; }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      display: grid; grid-template-columns: 110px 1fr;
+      gap: 0 1.8rem; padding: 1.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
     .edu-item:last-child { border-bottom: none; }
 
-    .edu-year {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--ink-faint);
-      padding-top: 0.15rem;
-      line-height: 1.4;
+    .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--ink-faint); padding-top: 0.2rem; }
+    .edu-degree { font-family: 'EB Garamond', serif; font-size: 1.08rem; font-weight: 500; color: var(--ink); margin-bottom: 0.15rem; }
+    .edu-inst { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 0.2rem; }
+    .edu-gpa { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--teal); }
+
+    /* ── AWARDS ── */
+    .award-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .award-card {
+      padding: 1.2rem 1.3rem;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--r); background: var(--surface);
+      transition: all 0.2s;
+    }
+    .award-card:hover {
+      border-color: var(--accent-light);
+      box-shadow: 0 4px 16px rgba(35,87,160,0.08);
+      transform: translateY(-2px);
     }
 
-    .edu-degree {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.15rem;
-    }
-
-    .edu-inst {
-      font-size: 0.88rem;
-      color: var(--ink-soft);
-    }
-
-    /* ── Awards ── */
-    #awards { background: var(--surface); }
-
-    .award-list { display: flex; flex-direction: column; gap: 0.9rem; }
-
-    .award-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      border-radius: var(--radius);
-      background: var(--surface-2);
-      border: 1px solid var(--rule);
-    }
-
-    .award-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+    .award-icon-wrap {
+      width: 36px; height: 36px; border-radius: 50%;
       background: var(--accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.8rem;
     }
 
-    .award-name {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.1rem;
-    }
+    .award-name { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; line-height: 1.3; }
+    .award-body { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.5; }
 
-    .award-desc {
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-    }
-
-    /* ── Contact ── */
+    /* ── CONTACT ── */
     #contact {
-      background: var(--accent);
-      color: #fff;
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a5f 100%);
+      padding: 5rem clamp(1.2rem, 5vw, 3rem);
     }
 
-    #contact .section-eyebrow { color: rgba(255,255,255,0.6); }
-    #contact .section-title {
-      color: #fff;
-      border-bottom-color: rgba(255,255,255,0.2);
-    }
+    #contact .eyebrow { color: rgba(255,255,255,0.5); }
+    #contact .sec-title { color: #fff; border-bottom-color: rgba(255,255,255,0.15); }
 
-    .contact-body {
-      font-size: 0.97rem;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 1.8rem;
-      line-height: 1.8;
-      max-width: 520px;
-    }
+    .contact-desc { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 520px; margin-bottom: 2rem; line-height: 1.8; }
 
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-    }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
-    .contact-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.5rem 1.1rem;
-      border-radius: 100px;
-      font-size: 0.82rem;
-      font-weight: 500;
+    .cpill {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.55rem 1.2rem; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 500;
       text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-      background: rgba(255,255,255,0.1);
-      transition: background 0.2s, border-color 0.2s;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #fff; background: rgba(255,255,255,0.08);
+      transition: all 0.2s;
     }
+    .cpill:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.55); transform: translateY(-1px); }
 
-    .contact-pill:hover {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.6);
-    }
-
-    /* ── Footer ── */
+    /* ── FOOTER ── */
     footer {
-      background: var(--ink);
-      color: var(--ink-faint);
-      text-align: center;
-      padding: 1.4rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.03em;
+      background: #080e1a; color: #4a5568;
+      text-align: center; padding: 1.6rem;
+      font-size: 0.76rem; letter-spacing: 0.04em;
     }
+    footer a { color: #4a5568; text-decoration: none; }
+    footer a:hover { color: #94a3b8; }
 
-    footer a { color: var(--ink-faint); text-decoration: none; }
-    footer a:hover { color: #fff; }
-
-    /* ── Mobile ── */
+    /* ── MOBILE ── */
     @media (max-width: 640px) {
-      .nav-links { display: none; flex-direction: column; gap: 0; position: fixed; top: var(--nav-h); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--rule); padding: 0.5rem 0; }
+      .nav-links { display: none; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--rule); padding: 0.5rem 0; gap: 0; }
       .nav-links.open { display: flex; }
-      .nav-links li { padding: 0; }
-      .nav-links a { display: block; padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+      .nav-links a { display: block; padding: 0.85rem 1.5rem; font-size: 0.88rem; }
       .nav-toggle { display: flex; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-avatar { display: none; }
-      .edu-item { grid-template-columns: 1fr; gap: 0.2rem; }
-      .edu-year { font-size: 0.74rem; }
+      .award-grid { grid-template-columns: 1fr; }
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.2rem; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
   </style>
 </head>
 <body>
 
-<!-- ══ Navigation ══ -->
+<!-- NAV -->
 <nav>
   <a class="nav-brand" href="#about">Maryam Khalid</a>
   <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
@@ -498,229 +387,253 @@
     <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<main>
+<!-- HERO -->
+<section id="about">
+  <div class="hero-inner">
+    <div class="hero-badge">Seeking fully funded PhD opportunities &middot; 2027</div>
+    <h1 class="hero-name">Maryam<br><em>Khalid</em></h1>
+    <p class="hero-subtitle">MSc Researcher &nbsp;&middot;&nbsp; Electronic and Information Engineering &nbsp;&middot;&nbsp; Southeast University, Nanjing</p>
+    <p class="hero-desc">
+      My path into biomedical AI began in a hospital, not a computer lab. As a licensed Medical Imaging Technologist operating CT, MRI, ECG, and ultrasound equipment, I witnessed firsthand how technology transforms clinical diagnosis and became driven to push its boundaries further.
+    </p>
+    <p class="hero-desc">
+      At SEU's Sleep, Heart and Emotion (SHE) Wearable Intelligent Monitoring Laboratory, I develop deep learning frameworks for physiological signal processing and multimodal wearable sensing, integrating EEG, ECG-derived HRV, speech, and respiration signals for clinical applications. I also contribute to AI model deployment in wearable monitoring systems developed in collaboration with Gortek (Shanghai) and Lenovo.
+    </p>
+    <div class="hero-links">
+      <a class="pill" href="https://www.linkedin.com/in/maryam-khalid-researcher" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="pill" href="https://orcid.org/0009-0009-3286-6910" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm-1.374 5.6h1.6v1.8h-1.6V5.6zm0 3.4h1.6V18.4h-1.6V9zm3.374 0h1.6c1.8 0 3 1.2 3 4.7 0 3.4-1.2 4.7-3 4.7h-1.6V9zm1.6 1.6v6.2c.8 0 1.4-.6 1.4-3.1s-.6-3.1-1.4-3.1z"/></svg>
+        ORCID
+      </a>
+      <a class="pill" href="https://github.com/maryam-khalid-ai" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a class="pill" href="mailto:223247029@seu.edu.cn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+</section>
 
-  <!-- ══ Hero / About ══ -->
-  <section id="about">
-    <div class="inner">
-      <div class="hero-grid">
+<!-- RESEARCH -->
+<section class="sec" id="research">
+  <div class="inner">
+    <p class="eyebrow">Focus Areas</p>
+    <h2 class="sec-title">Research Interests</h2>
+    <div class="tags-grid">
+      <span class="tag">Physiological Signal Processing</span>
+      <span class="tag">Federated Learning</span>
+      <span class="tag">Multimodal Wearable Sensing</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Biomedical AI</span>
+      <span class="tag">EEG, ECG and Biosignal Analysis</span>
+      <span class="tag">Medical Imaging</span>
+      <span class="tag">Clinical Decision Support</span>
+      <span class="tag">Human-Centred Healthcare Technology</span>
+    </div>
+    <p class="research-blurb">
+      My research combines clinical biomedical expertise with AI-driven signal processing, spanning wearable physiological sensing, multimodal data fusion, and intelligent healthcare systems. With a grounding in real clinical environments and hands-on experience with diagnostic imaging, I am interested in developing systems that are practical, interpretable, and directly applicable to patient care across a range of clinical domains.
+    </p>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="sec" id="publications">
+  <div class="inner">
+    <p class="eyebrow">Selected Works</p>
+    <h2 class="sec-title">Publications</h2>
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <span class="pub-status s-review">Under Review</span>
+        <p class="pub-title">GCMAF: Gated Cross-Modal Attention Fusion Federated Learning Framework for Multimodal Depression Detection</p>
+        <p class="pub-venue"><strong>Biomedical Signal Processing and Control</strong> &nbsp;&middot;&nbsp; Elsevier Q1 &nbsp;&middot;&nbsp; IF 4.9</p>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-status s-review">Under Review</span>
+        <p class="pub-title">Rest-Task-Delta Physiological Reactivity for Depression Detection Using Wearable EEG, ECG, and Respiration</p>
+        <p class="pub-venue"><strong>IEEE BSN 2026</strong> &nbsp;&middot;&nbsp; Body Sensor Networks Conference, Porto</p>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-status s-accepted">Accepted</span>
+        <p class="pub-title">VR-GAF EEG-Speech Fusion for Depression Detection</p>
+        <p class="pub-venue"><strong>ICBIP 2026</strong> &nbsp;&middot;&nbsp; International Conference on Biomedical Imaging and Processing, Shanghai</p>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-status s-pub">Published</span>
+        <p class="pub-title">Role of Early Arterial Phase Imaging in Accurately Differentiating Hepatocellular Carcinoma from Dysplastic Nodules</p>
+        <p class="pub-venue"><strong>Journal of Medical &amp; Health Sciences Review</strong> &nbsp;&middot;&nbsp; 2025</p>
+        <p class="pub-doi">DOI: <a href="https://doi.org/10.62019/xxh17e83" target="_blank" rel="noopener">10.62019/xxh17e83</a></p>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-status s-pub">Published</span>
+        <p class="pub-title">Clinical Relevance and Diagnostic Value of Somatostatin Receptor Scintigraphy in Neuroendocrine and Inflammatory Disorders</p>
+        <p class="pub-venue"><strong>Turk Fizyoterapi ve Rehabilitasyon Dergisi</strong> &nbsp;&middot;&nbsp; January 2026 &nbsp;&middot;&nbsp; Online Presentation</p>
+        <p class="pub-doi">DOI: <a href="https://doi.org/10.21653/tjpr.2026.op54" target="_blank" rel="noopener">10.21653/tjpr.2026.op54</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="sec" id="experience">
+  <div class="inner">
+    <p class="eyebrow">Professional Background</p>
+    <h2 class="sec-title">Experience</h2>
+    <div>
+
+      <div class="exp-item">
+        <div class="exp-period">Sep 2024<br>Present</div>
         <div>
-          <p class="hero-eyebrow">MSc Researcher · Southeast University</p>
-          <h1 class="hero-name">Maryam Khalid</h1>
-          <p class="hero-title">
-            Electronic and Information Engineering &nbsp;·&nbsp; Nanjing, China<br>
-            SHE Wearable Intelligent Monitoring Laboratory
-          </p>
-          <p class="hero-desc">
-            I am an MSc researcher at Southeast University working at the intersection of physiological signal processing, federated learning, and wearable sensing. My research focuses on developing privacy-preserving multimodal frameworks for clinical AI applications, with a particular interest in designing systems that can function reliably in realistic, distributed healthcare settings.
-          </p>
-          <div class="hero-links">
-            <a class="pill" href="https://www.linkedin.com/in/maryam-khalid-researcher" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-            <a class="pill" href="https://orcid.org/0009-0009-3286-6910" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm-1.374 5.6h1.6v1.8h-1.6V5.6zm0 3.4h1.6V18.4h-1.6V9zm3.374 0h1.6c1.8 0 3 1.2 3 4.7 0 3.4-1.2 4.7-3 4.7h-1.6V9zm1.6 1.6v6.2c.8 0 1.4-.6 1.4-3.1s-.6-3.1-1.4-3.1z"/></svg>
-              ORCID
-            </a>
-            <a class="pill" href="https://github.com/maryamkhalidofficial" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-        <div class="hero-avatar">
-          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#1a4a7a" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <p class="exp-role">MSc Researcher</p>
+          <p class="exp-org">SHE Wearable Intelligent Monitoring Laboratory &nbsp;&middot;&nbsp; Southeast University, Nanjing</p>
+          <p class="exp-desc">Developing multimodal physiological signal processing frameworks integrating EEG, ECG-derived HRV, speech, and respiration signals for clinical AI applications. Contributing to AI model deployment in wearable monitoring systems in collaboration with Gortek (Shanghai) and Lenovo. Conducting clinical data collection at Nanjing Brain Hospital under the supervision of Prof. Chengyu Liu and Dr. Lulu Zhao.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ══ Research ══ -->
-  <section id="research">
-    <div class="inner">
-      <p class="section-eyebrow">Focus Areas</p>
-      <h2 class="section-title">Research Interests</h2>
-      <div class="tags-grid">
-        <span class="tag">Physiological Signal Processing</span>
-        <span class="tag">Federated Learning</span>
-        <span class="tag">Multimodal Wearable Sensing</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">Biomedical AI</span>
-        <span class="tag">EEG &amp; ECG Analysis</span>
-        <span class="tag">Clinical Decision Support</span>
-        <span class="tag">Privacy-Preserving AI</span>
+      <div class="exp-item">
+        <div class="exp-period">Feb 2022<br>Mar 2023</div>
+        <div>
+          <p class="exp-role">Licensed Medical Imaging Technologist</p>
+          <p class="exp-org">Al-Khidmat Diagnostic Center &nbsp;&middot;&nbsp; Multan, Pakistan</p>
+          <p class="exp-desc">Operated diagnostic imaging equipment including CT, MRI, Mammography, X-ray, and ECG across a diverse patient population. Assisted radiologists in clinical imaging procedures and maintained diagnostic quality and equipment safety standards.</p>
+        </div>
       </div>
-      <p class="research-blurb">
-        My work sits at the convergence of wearable instrumentation, multimodal signal fusion, and federated machine learning. I am particularly interested in designing AI systems that operate under realistic clinical constraints: heterogeneous data distributions, missing modalities, and cross-site privacy requirements. Alongside signal-level work, I maintain an interest in medical imaging and its role in supporting diagnostic workflows.
-      </p>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══ Publications ══ -->
-  <section id="publications">
-    <div class="inner">
-      <p class="section-eyebrow">Selected Works</p>
-      <h2 class="section-title">Publications</h2>
-      <div class="pub-list">
+<!-- EDUCATION -->
+<section class="sec" id="education">
+  <div class="inner">
+    <p class="eyebrow">Academic Background</p>
+    <h2 class="sec-title">Education</h2>
+    <div>
 
-        <div class="pub-card">
-          <span class="pub-status status-review">Under Review</span>
-          <p class="pub-title">GCMAF: Gated Cross-Modal Attention Fusion Federated Learning Framework for Multimodal Depression Detection</p>
-          <p class="pub-venue"><strong>Biomedical Signal Processing and Control</strong> &nbsp;·&nbsp; Elsevier Q1 (IF 4.9)</p>
+      <div class="edu-item">
+        <div class="edu-year">2024 – 2027</div>
+        <div>
+          <p class="edu-degree">Professional Master's Degree (MSc), Electronic and Information Engineering</p>
+          <p class="edu-inst">Southeast University, Nanjing, China</p>
+          <p class="edu-gpa">GPA 3.87 / 4.0</p>
         </div>
-
-        <div class="pub-card">
-          <span class="pub-status status-submitted">Submitted</span>
-          <p class="pub-title">Rest-Task-Delta Physiological Reactivity for Depression Detection Using Wearable EEG, ECG, and Respiration</p>
-          <p class="pub-venue"><strong>IEEE BSN 2026</strong> &nbsp;·&nbsp; Body Sensor Networks Conference, Porto</p>
-        </div>
-
-        <div class="pub-card">
-          <span class="pub-status status-review">Under Review</span>
-          <p class="pub-title">VR-GAF EEG-Speech Fusion for Depression Detection</p>
-          <p class="pub-venue"><strong>ICBIP 2026</strong> &nbsp;·&nbsp; International Conference on Biomedical Imaging and Processing, Shanghai</p>
-        </div>
-
-        <div class="pub-card">
-          <span class="pub-status status-published">Published</span>
-          <p class="pub-title">Role of Early Arterial Phase Imaging in Accurately Differentiating Hepatocellular Carcinoma from Dysplastic Nodules</p>
-          <p class="pub-venue"><strong>Journal of Medical &amp; Health Sciences Review</strong> &nbsp;·&nbsp; 2025</p>
-          <p class="pub-doi">DOI: <a href="https://doi.org/10.62019/xxh17e83" target="_blank" rel="noopener">10.62019/xxh17e83</a></p>
-        </div>
-
-        <div class="pub-card">
-          <span class="pub-status status-published">Published</span>
-          <p class="pub-title">Clinical Relevance and Diagnostic Value of Somatostatin Receptor Scintigraphy in Neuroendocrine and Inflammatory Disorders</p>
-          <p class="pub-venue"><strong>Turk Fizyoterapi ve Rehabilitasyon Dergisi</strong> &nbsp;·&nbsp; January 2026 (Online Presentation)</p>
-          <p class="pub-doi">DOI: <a href="https://doi.org/10.21653/tjpr.2026.op54" target="_blank" rel="noopener">10.21653/tjpr.2026.op54</a></p>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- ══ Education ══ -->
-  <section id="education">
-    <div class="inner">
-      <p class="section-eyebrow">Academic Background</p>
-      <h2 class="section-title">Education</h2>
-      <div class="edu-list">
-
-        <div class="edu-item">
-          <span class="edu-year">2024 – 2027</span>
-          <div>
-            <p class="edu-degree">Professional Master's Degree (MSc), Electronic and Information Engineering</p>
-            <p class="edu-inst">Southeast University, Nanjing, China</p>
-          </div>
+      <div class="edu-item">
+        <div class="edu-year">2023 – 2025</div>
+        <div>
+          <p class="edu-degree">MS Allied Health Sciences (Medical Imaging Technology)</p>
+          <p class="edu-inst">Superior University Lahore, Pakistan</p>
+          <p class="edu-gpa">GPA 3.77 / 4.0</p>
         </div>
-
-        <div class="edu-item">
-          <span class="edu-year">2023 – 2025</span>
-          <div>
-            <p class="edu-degree">MS Allied Health Sciences (Medical Imaging Technology)</p>
-            <p class="edu-inst">Superior University Lahore, Pakistan &nbsp;·&nbsp; GPA 3.77 / 4.0</p>
-          </div>
-        </div>
-
-        <div class="edu-item">
-          <span class="edu-year">2018 – 2022</span>
-          <div>
-            <p class="edu-degree">BSc Radiography and Imaging Technology</p>
-            <p class="edu-inst">Government College University Faisalabad (GCUF) &nbsp;·&nbsp; CGPA 3.73 / 4.0</p>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- ══ Awards ══ -->
-  <section id="awards">
-    <div class="inner">
-      <p class="section-eyebrow">Recognition</p>
-      <h2 class="section-title">Awards &amp; Honours</h2>
-      <div class="award-list">
-
-        <div class="award-item">
-          <div class="award-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1a4a7a" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <div>
-            <p class="award-name">SEU President Scholarship</p>
-            <p class="award-desc">Southeast University, Nanjing, China</p>
-          </div>
+      <div class="edu-item">
+        <div class="edu-year">2018 – 2022</div>
+        <div>
+          <p class="edu-degree">BSc Radiography and Imaging Technology</p>
+          <p class="edu-inst">Government College University Faisalabad (GCUF)</p>
+          <p class="edu-gpa">CGPA 3.73 / 4.0</p>
         </div>
-
-        <div class="award-item">
-          <div class="award-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1a4a7a" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <div>
-            <p class="award-name">Cultural Star Award</p>
-            <p class="award-desc">Provincial Level, Jiangsu Province, China &nbsp;·&nbsp; SEU Art Troupe</p>
-          </div>
-        </div>
-
-        <div class="award-item">
-          <div class="award-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1a4a7a" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <p class="award-name">Outstanding International Student Representative</p>
-            <p class="award-desc">National-Level Forum, University of Electronic Science and Technology of China (UESTC)</p>
-          </div>
-        </div>
-
-        <div class="award-item">
-          <div class="award-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1a4a7a" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <div>
-            <p class="award-name">PEEF Merit-Based Scholarship</p>
-            <p class="award-desc">Punjab Educational Endowment Fund, Pakistan &nbsp;·&nbsp; Undergraduate Level</p>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- ══ Contact ══ -->
-  <section id="contact">
-    <div class="inner">
-      <p class="section-eyebrow">Get in Touch</p>
-      <h2 class="section-title">Contact</h2>
-      <p class="contact-body">
-        I welcome correspondence regarding research collaboration, PhD opportunities, and academic exchange. Please feel free to reach out via LinkedIn or ORCID.
-      </p>
-      <div class="contact-links">
-        <a class="contact-pill" href="https://www.linkedin.com/in/maryam-khalid-researcher" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a class="contact-pill" href="https://orcid.org/0009-0009-3286-6910" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm-1.374 5.6h1.6v1.8h-1.6V5.6zm0 3.4h1.6V18.4h-1.6V9zm3.374 0h1.6c1.8 0 3 1.2 3 4.7 0 3.4-1.2 4.7-3 4.7h-1.6V9zm1.6 1.6v6.2c.8 0 1.4-.6 1.4-3.1s-.6-3.1-1.4-3.1z"/></svg>
-          ORCID
-        </a>
-        <a class="contact-pill" href="https://github.com/maryamkhalidofficial" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="sec" id="awards">
+  <div class="inner">
+    <p class="eyebrow">Recognition</p>
+    <h2 class="sec-title">Awards &amp; Honours</h2>
+    <div class="award-grid">
+
+      <div class="award-card">
+        <div class="award-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2357a0" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="award-name">SEU President Scholarship</p>
+        <p class="award-body">Southeast University, Nanjing, China</p>
       </div>
-    </div>
-  </section>
 
-</main>
+      <div class="award-card">
+        <div class="award-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2357a0" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <p class="award-name">Cultural Star Award</p>
+        <p class="award-body">Provincial Level, Jiangsu Province &nbsp;&middot;&nbsp; SEU Art Troupe</p>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2357a0" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <p class="award-name">Outstanding International Student Representative</p>
+        <p class="award-body">National-Level Forum, UESTC, Chengdu</p>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2357a0" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="award-name">PEEF Merit-Based Scholarship</p>
+        <p class="award-body">Punjab Educational Endowment Fund, Pakistan &nbsp;&middot;&nbsp; Undergraduate</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <p class="eyebrow">Get in Touch</p>
+    <h2 class="sec-title">Contact</h2>
+    <p class="contact-desc">
+      I welcome correspondence regarding research collaboration, PhD opportunities, and academic exchange. I am actively seeking fully funded PhD positions commencing 2027 in biomedical AI, signal processing, and related fields.
+    </p>
+    <div class="contact-links">
+      <a class="cpill" href="mailto:223247029@seu.edu.cn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        223247029@seu.edu.cn
+      </a>
+      <a class="cpill" href="https://www.linkedin.com/in/maryam-khalid-researcher" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="cpill" href="https://orcid.org/0009-0009-3286-6910" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm-1.374 5.6h1.6v1.8h-1.6V5.6zm0 3.4h1.6V18.4h-1.6V9zm3.374 0h1.6c1.8 0 3 1.2 3 4.7 0 3.4-1.2 4.7-3 4.7h-1.6V9zm1.6 1.6v6.2c.8 0 1.4-.6 1.4-3.1s-.6-3.1-1.4-3.1z"/></svg>
+        ORCID
+      </a>
+      <a class="cpill" href="https://github.com/maryam-khalid-ai" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  &copy; 2026 Maryam Khalid &nbsp;·&nbsp; Southeast University, Nanjing &nbsp;·&nbsp;
+  &copy; 2026 Maryam Khalid &nbsp;&middot;&nbsp; Southeast University, Nanjing &nbsp;&middot;&nbsp;
   <a href="https://orcid.org/0009-0009-3286-6910" target="_blank" rel="noopener">ORCID 0009-0009-3286-6910</a>
 </footer>
 
