@@ -100,49 +100,7 @@
       pointer-events: none;
     }
       
-        .hero-inner {
-        width: 100%;
-        max-width: 1050px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 230px;
-        column-gap: 4rem;
-        align-items: center;
-      }
-      
-      /* Keep all written content on the left */
-      .hero-badge,
-      .hero-name,
-      .hero-subtitle,
-      .hero-desc,
-      .hero-phd,
-      .hero-links {
-        grid-column: 1;
-      }
-      
-      /* Place the photograph on the right */
-      .hero-inner .profile-photo {
-        grid-column: 2;
-        grid-row: 1 / span 6;
-        justify-self: end;
-        align-self: center;
-      
-        display: block;
-        width: 220px !important;
-        height: 270px !important;
-        max-width: 220px !important;
-      
-        object-fit: cover;
-        object-position: center 20%;
-        border-radius: 18px;
-        margin: 0;
-      
-        border: 4px solid #ffffff;
-        box-shadow: 0 10px 30px rgba(20, 45, 80, 0.18);
-      }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.35rem 0.9rem;
@@ -439,7 +397,6 @@
 <section id="about">
   <div class="hero-inner">
     <div class="hero-badge">Seeking PhD Opportunities for Fall &middot; 2027</div>
-    <img src="profile.jpg" alt="Maryam Khalid" class="profile-photo">
     <h1 class="hero-name">Maryam<br><em>Khalid</em></h1>
     <p class="hero-subtitle">Graduate Researcher in Biomedical AI &nbsp;&middot;&nbsp; Southeast University, Nanjing</p>
     <p class="hero-desc">
